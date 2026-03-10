@@ -112,6 +112,17 @@ export default function Inquiry() {
             </div>
           </form>
         </div>
+
+        {/* Brand Promise Section */}
+        <section className="text-center py-20">
+          <div className="inline-block px-6 py-2 rounded-full border border-black/5 bg-black/[0.02] mb-8">
+            <span className="text-[0.6rem] uppercase tracking-[0.4em] font-bold opacity-60">High Velocity Precision</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-poppins font-bold uppercase italic tracking-tighter mb-12">Built for the Ambitious.</h2>
+          <div className="flex justify-center gap-12 opacity-30 grayscale hover:grayscale-0 transition-all">
+            {/* Logo grid or symbolic marks could go here */}
+          </div>
+        </section>
       </motion.div>
     </div>
   );
