@@ -1,11 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InvertButton from "@/components/InvertButton";
 
 export default function Inquiry() {
   const [isExpress, setIsExpress] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-black pt-32 pb-24 px-4 md:px-8 flex items-center justify-center relative overflow-hidden">
