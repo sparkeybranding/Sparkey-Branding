@@ -102,7 +102,7 @@ export default function WebDesign() {
         </div>
 
         {/* Repositioned Portfolio Section with Scroll Animation */}
-        <section className="mb-10 -mt-20">
+        <section className="mb-24 -mt-20">
           <ContainerScroll
             titleComponent={
               <div className="mb-8">
