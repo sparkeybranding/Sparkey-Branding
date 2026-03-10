@@ -21,8 +21,8 @@ export default function Navigation() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Design", href: "/graphic-design" },
-    { name: "Web", href: "/web-design" },
+    { name: "Graphic Design", href: "/graphic-design" },
+    { name: "Web Design", href: "/web-design" },
     { name: "Contact", href: "/contact" },
   ];
 
