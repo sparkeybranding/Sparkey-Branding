@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import FloatingElement from "@/components/FloatingElement";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageCircle, ArrowUpRight } from "lucide-react";
@@ -104,36 +103,58 @@ export default function WebDesign() {
           </FloatingElement>
         </div>
 
-        {/* Repositioned Portfolio Section with Scroll Animation */}
-        <section className="mb-24 -mt-20">
-          <ContainerScroll
-            titleComponent={
-              <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-poppins font-bold tracking-tight mb-4 uppercase italic">Portfolio</h2>
-                <div className="h-px w-24 bg-black mx-auto" />
-                <p className="mt-6 text-xl font-sans font-light opacity-60 max-w-xl mx-auto">
-                  Authentic digital flagships built for high-impact results.
-                </p>
-              </div>
-            }
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 h-full overflow-y-auto bg-[#1A1A1A] scrollbar-hide">
-              {portfolioItems.map((item, index) => (
-                <Link href={item.url} target="_blank" key={item.name} className="group block h-64 relative overflow-hidden rounded-xl border border-white/10">
-                  <Image 
-                    src={item.image} 
-                    alt={item.name} 
-                    fill 
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-1000 ease-out opacity-80 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4">
-                     <h3 className="text-white text-lg font-poppins font-bold group-hover:text-[#E2FF3D] transition-colors">{item.name}</h3>
-                     <p className="text-white/70 text-xs font-sans mt-1 line-clamp-2">{item.description}</p>
+        {/* Repositioned Portfolio Section */}
+        <section className="mb-40">
+          <div className="mb-24">
+            <h2 className="text-4xl md:text-5xl font-poppins font-bold tracking-tight mb-4 uppercase italic">Portfolio</h2>
+            <div className="h-px w-24 bg-black" />
+            <p className="mt-6 text-xl font-sans font-light opacity-60 max-w-xl">
+              Authentic digital flagships built for high-impact results.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
+            {portfolioItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                className="md:col-span-1"
+              >
+                <Link href={item.url} target="_blank" className="group block">
+                  <div className="relative w-full aspect-[16/9] rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 mb-8">
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700 z-10" />
+                    <Image 
+                      src={item.image} 
+                      alt={item.name} 
+                      fill 
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-1000 ease-out"
+                    />
+                  </div>
+                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 px-4">
+                    <div className="max-w-xl">
+                      <div className="flex gap-2 mb-3">
+                        {item.tags.map(tag => (
+                          <span key={tag} className="text-[0.65rem] uppercase tracking-[0.2em] font-bold opacity-40">{tag}</span>
+                        ))}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl font-poppins font-bold uppercase tracking-tighter group-hover:italic transition-all duration-300">{item.name}</h3>
+                      <p className="mt-4 text-lg font-sans font-light opacity-70 leading-relaxed">{item.description}</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full border border-black/20 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-500">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </Link>
-              ))}
-            </div>
-          </ContainerScroll>
+              </motion.div>
+            ))}
+          </div>
         </section>
 
         {/* High Conversion Section */}
