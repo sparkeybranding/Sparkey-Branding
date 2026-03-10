@@ -3,11 +3,24 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import FloatingElement from "@/components/FloatingElement";
 
 import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(error => {
+        console.log("Video auto-play was prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
       {/* Hero Section */}
@@ -16,14 +29,14 @@ export default function Home() {
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            src="/videos/hero_bg.mp4"
             className="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover"
-          >
-            <source src="/videos/hero_bg.mp4" type="video/mp4" />
-          </video>
+          />
         </div>
 
         {/* Floating Paths Animated Overlay */}
