@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook, Instagram } from "lucide-react";
 
 export default function Navigation() {
   const { scrollY } = useScroll();
@@ -23,7 +23,6 @@ export default function Navigation() {
     { name: "Home", href: "/" },
     { name: "Graphic Design", href: "/graphic-design" },
     { name: "Web Design", href: "/web-design" },
-    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -59,6 +58,14 @@ export default function Navigation() {
                 {link.name}
               </Link>
             ))}
+            <div className="flex items-center gap-6 border-l border-white/20 pl-6">
+              <Link href="https://instagram.com" target="_blank" className="hover:text-white/60 transition-colors">
+                <Instagram size={20} />
+              </Link>
+              <Link href="https://facebook.com" target="_blank" className="hover:text-white/60 transition-colors">
+                <Facebook size={20} />
+              </Link>
+            </div>
           </nav>
           
           {/* Mobile / Tablet Controls */}
