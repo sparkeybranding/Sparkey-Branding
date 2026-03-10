@@ -95,7 +95,7 @@ export default function Home() {
           <div className="relative h-[600px] w-full">
             <FloatingElement delay={0} className="absolute top-0 right-0 w-3/4 h-[400px] z-10 shadow-2xl">
               <div className="relative w-full h-full rounded-3xl overflow-hidden hover:scale-[1.02] transition-transform duration-700 pointer-events-auto">
-                <Image src="/images/happy_business_owners.png" alt="Happy Business Owners" fill className="object-cover" />
+                <Image src="/images/fun_entrepreneur_sparkey.png" alt="Energetic Sparkey Entrepreneur" fill className="object-cover" />
               </div>
             </FloatingElement>
 
