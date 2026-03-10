@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Sparkey! Branding",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/images/og-image-clean.png",
         width: 1200,
         height: 630,
         alt: "Sparkey! Branding - Web Development & Branding",
