@@ -18,16 +18,16 @@ export default function Home() {
           className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
           dangerouslySetInnerHTML={{
             __html: `
-              <div class="absolute inset-0 bg-black/40 z-10"></div>
+              <div class="absolute inset-0 bg-black/40 z-10 w-full h-full"></div>
               <video
                 autoplay
                 loop
                 muted
                 playsinline
-                poster="/images/og-image.jpg"
-                src="/videos/hero_bg.mp4"
-                style="height: 100vh; width: 100vw; object-fit: cover; opacity: 0.7; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
-              ></video>
+                class="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover pointer-events-none"
+              >
+                <source src="/videos/hero_bg.mp4" type="video/mp4" />
+              </video>
             `
           }}
         />
