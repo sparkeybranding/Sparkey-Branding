@@ -16,7 +16,7 @@ export default function Inquiry() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-black pt-32 pb-24 px-4 md:px-8 flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen bg-white text-black pt-32 pb-24 px-4 md:px-8 flex flex-col items-center justify-start relative overflow-x-hidden">
       {/* Abstract Background Element */}
       <motion.div 
         animate={{ rotate: 360 }}
