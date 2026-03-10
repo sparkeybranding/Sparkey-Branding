@@ -12,15 +12,18 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-        {/* YouTube Video Background */}
+        {/* Local Video Background (Ensures Mobile Autoplay) */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
-          <iframe
-            className="absolute top-1/2 left-1/2 w-[100vw] min-w-[177.77vh] h-[56.25vw] min-h-[100vh] -translate-x-1/2 -translate-y-1/2 opacity-70 pointer-events-none"
-            src="https://www.youtube.com/embed/cjCPT_qKje0?autoplay=1&mute=1&loop=1&playlist=cjCPT_qKje0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            frameBorder="0"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover"
+          >
+            <source src="/videos/hero_bg.mp4" type="video/mp4" />
+          </video>
         </div>
 
         {/* Floating Paths Animated Overlay */}
