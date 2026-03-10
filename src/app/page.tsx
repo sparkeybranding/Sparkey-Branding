@@ -9,28 +9,53 @@ import FloatingElement from "@/components/FloatingElement";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Aggressive iOS Safari Autoplay workaround
+    const attemptPlay = () => {
+      if (videoRef.current) {
+        videoRef.current.defaultMuted = true;
+        videoRef.current.muted = true;
+        videoRef.current.setAttribute("playsinline", "");
+        videoRef.current.setAttribute("webkit-playsinline", "");
+        videoRef.current.play().catch(error => {
+          console.log("Autoplay prevented by browser strictly:", error);
+        });
+      }
+    };
+
+    attemptPlay();
+    
+    // Add interaction listener as a fallback if the auto-attempt fails
+    document.addEventListener("touchstart", attemptPlay, { once: true });
+    document.addEventListener("click", attemptPlay, { once: true });
+
+    return () => {
+      document.removeEventListener("touchstart", attemptPlay);
+      document.removeEventListener("click", attemptPlay);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-        {/* Local Video Background (Ensures Mobile Autoplay via raw HTML injection) */}
-        <div 
-          className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
-          dangerouslySetInnerHTML={{
-            __html: `
-              <div class="absolute inset-0 bg-black/40 z-10 w-full h-full"></div>
-              <video
-                autoplay
-                loop
-                muted
-                playsinline
-                class="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover pointer-events-none"
-              >
-                <source src="/videos/hero_bg.mp4" type="video/mp4" />
-              </video>
-            `
-          }}
-        />
+        {/* Local Video Background (Ensures Mobile Autoplay) */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-black/40 z-10 w-full h-full"></div>
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover pointer-events-none"
+          >
+            <source src="/videos/hero_bg.mp4" type="video/mp4" />
+          </video>
+        </div>
         {/* CSS to hide the giant iOS play button if Low Power Mode blocks autoplay */}
         <style dangerouslySetInnerHTML={{__html: `
           video::-webkit-media-controls-start-playback-button {
