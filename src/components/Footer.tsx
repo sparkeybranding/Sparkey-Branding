@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="relative w-40 md:w-48 h-10 md:h-12 brightness-0">
               <Image 
                 src="/images/footer_logo.png" 
-                alt="Sparkey Branding Logo" 
+                alt="Sparkey! Branding - Premium Design Agency Logo" 
                 fill 
                 className="object-contain object-left"
               />
@@ -42,9 +42,8 @@ export default function Footer() {
           
           <div className="flex flex-col gap-4">
             <span className="uppercase tracking-[0.2em] font-medium opacity-40 mb-2">Socials</span>
-            <a href="#" className="hover:opacity-60 transition-opacity">Instagram</a>
-            <a href="#" className="hover:opacity-60 transition-opacity">Twitter / X</a>
-            <a href="#" className="hover:opacity-60 transition-opacity">LinkedIn</a>
+            <a href="https://www.instagram.com/sparkeybranding" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Instagram</a>
+            <a href="https://www.facebook.com/SparkeyBranding" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Facebook</a>
           </div>
         </div>
 
