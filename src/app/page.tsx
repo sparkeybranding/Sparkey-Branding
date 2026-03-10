@@ -119,7 +119,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
              {/* Tier 1 */}
              <FloatingElement delay={0}>
-              <div className="group bg-white border-2 border-transparent rounded-[2rem] p-10 md:p-16 hover:border-black hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden">
+              <Link href="/inquiry" className="group bg-white border-2 border-transparent rounded-[2rem] p-10 md:p-16 hover:border-black hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 h-full flex flex-col justify-between cursor-pointer block relative overflow-hidden">
                 <div className="absolute -right-8 -top-8 w-32 h-32 bg-yellow-400 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-8">
@@ -136,12 +136,12 @@ export default function Home() {
                     Start Your Engines <span className="text-xl">&rarr;</span>
                   </span>
                 </div>
-              </div>
+              </Link>
              </FloatingElement>
 
              {/* Tier 2 */}
              <FloatingElement delay={1.5}>
-              <div className="group bg-white border-2 border-transparent rounded-[2rem] p-10 md:p-16 hover:border-black hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 h-full flex flex-col justify-between cursor-pointer relative overflow-hidden">
+              <Link href="/inquiry" className="group bg-white border-2 border-transparent rounded-[2rem] p-10 md:p-16 hover:border-black hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 h-full flex flex-col justify-between cursor-pointer block relative overflow-hidden">
                 <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-blue-500 rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-8">
@@ -158,7 +158,7 @@ export default function Home() {
                     Get Into Orbit <span className="text-xl">&rarr;</span>
                   </span>
                 </div>
-              </div>
+              </Link>
              </FloatingElement>
           </div>
         </div>
