@@ -59,7 +59,7 @@ export default function Navigation() {
               </Link>
             ))}
             <div className="flex items-center gap-6 border-l border-white/20 pl-6">
-              <Link href="https://instagram.com" target="_blank" className="hover:text-white/60 transition-colors">
+              <Link href="https://www.instagram.com/sparkeybranding" target="_blank" className="hover:text-white/60 transition-colors">
                 <Instagram size={20} />
               </Link>
               <Link href="https://facebook.com" target="_blank" className="hover:text-white/60 transition-colors">
