@@ -9,35 +9,36 @@ import FloatingElement from "@/components/FloatingElement";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.defaultMuted = true;
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(error => {
-        console.log("Video auto-play was prevented:", error);
-      });
-    }
-  }, []);
-
   return (
     <div className="min-h-screen bg-white text-black selection:bg-black selection:text-white">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-        {/* Local Video Background (Ensures Mobile Autoplay) */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            src="/videos/hero_bg.mp4"
-            className="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 opacity-70 object-cover"
-          />
-        </div>
+        {/* Local Video Background (Ensures Mobile Autoplay via raw HTML injection) */}
+        <div 
+          className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+          dangerouslySetInnerHTML={{
+            __html: `
+              <div class="absolute inset-0 bg-black/40 z-10"></div>
+              <video
+                autoplay
+                loop
+                muted
+                playsinline
+                poster="/images/og-image.jpg"
+                src="/videos/hero_bg.mp4"
+                style="height: 100vh; width: 100vw; object-fit: cover; opacity: 0.7; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"
+              ></video>
+            `
+          }}
+        />
+        {/* CSS to hide the giant iOS play button if Low Power Mode blocks autoplay */}
+        <style dangerouslySetInnerHTML={{__html: `
+          video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            appearance: none;
+            -webkit-appearance: none;
+          }
+        `}} />
 
         {/* Floating Paths Animated Overlay */}
         <div className="absolute inset-0 z-20 pointer-events-auto">
