@@ -62,7 +62,7 @@ export default function Navigation() {
               <Link href="https://www.instagram.com/sparkeybranding" target="_blank" className="hover:text-white/60 transition-colors">
                 <Instagram size={20} />
               </Link>
-              <Link href="https://facebook.com" target="_blank" className="hover:text-white/60 transition-colors">
+              <Link href="https://www.facebook.com/SparkeyBranding" target="_blank" className="hover:text-white/60 transition-colors">
                 <Facebook size={20} />
               </Link>
             </div>
