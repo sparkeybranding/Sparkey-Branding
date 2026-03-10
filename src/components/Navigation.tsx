@@ -114,6 +114,20 @@ export default function Navigation() {
                   </Link>
                 </motion.div>
               ))}
+              
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1 * navLinks.length, duration: 0.5 }}
+                className="flex items-center gap-8 mt-8 pt-8 border-t border-white/20 w-[80%] justify-center"
+              >
+                <Link href="https://www.instagram.com/sparkeybranding" target="_blank" className="hover:text-white/60 transition-colors">
+                  <Instagram size={24} />
+                </Link>
+                <Link href="https://www.facebook.com/SparkeyBranding" target="_blank" className="hover:text-white/60 transition-colors">
+                  <Facebook size={24} />
+                </Link>
+              </motion.div>
             </nav>
             
             <motion.div 
