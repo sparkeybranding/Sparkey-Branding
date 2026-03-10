@@ -191,7 +191,7 @@ export default function GraphicDesign() {
                         Any questions about <span className="italic uppercase">Design?</span>
                       </h3>
                       <p className="text-xl font-sans font-light opacity-60 mb-10 max-w-md">
-                        Feel free to reach out to me! We're ready to engineer your digital flagship.
+                        Stop leaving money on the table with weak branding. Your competitors are hoping you'll settle. Book a call right now and let's engineer a digital flagship that dominates your market.
                       </p>
                       
                       <div className="flex flex-wrap justify-center md:justify-start gap-4">
