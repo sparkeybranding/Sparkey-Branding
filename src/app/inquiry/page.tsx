@@ -28,8 +28,10 @@ export default function Inquiry() {
         className="relative z-10 w-full max-w-2xl"
       >
         <div className="mb-10 md:mb-12 text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif tracking-tighter mb-4">Initiate Web Launch</h1>
-          <p className="font-sans font-light tracking-wide opacity-60 text-sm md:text-base">Enter the coordinates for your next digital experience.</p>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-poppins font-light tracking-tight leading-[0.9]">Let's Build <br /><span className="font-bold italic uppercase">Greatness.</span></h1>
+          <p className="mt-8 text-xl md:text-2xl font-sans font-light opacity-80 max-w-2xl mx-auto leading-relaxed">
+            Successful brands are built on bold decisions. Join our circle of high-performing entrepreneurs and scale your vision.
+          </p>
         </div>
 
         {/* Glassmorphic Form */}
