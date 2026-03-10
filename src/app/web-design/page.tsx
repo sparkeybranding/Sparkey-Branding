@@ -7,6 +7,13 @@ import FloatingElement from "@/components/FloatingElement";
 
 const portfolioItems = [
   {
+    name: "First Church West Memphis",
+    description: "Prayer starts & faith is strengthened. A vibrant digital community hub designed for authentic fellowship.",
+    image: "/images/portfolio/first_church.png",
+    url: "https://firstchurchwestmemphis.com/",
+    tags: ["Community Hub", "Faith", "Web Platform"]
+  },
+  {
     name: "Marshall Consulting",
     description: "Expert HR-driven strategies and career coaching designed to unlock professional potential.",
     image: "/images/portfolio/marshall.png",
