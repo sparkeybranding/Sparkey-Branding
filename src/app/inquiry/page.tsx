@@ -6,6 +6,7 @@ import InvertButton from "@/components/InvertButton";
 
 export default function Inquiry() {
   const [isExpress, setIsExpress] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   useEffect(() => {
     // Delay slightly to override Next.js/Lenis/Framer layout shifts
@@ -14,6 +15,38 @@ export default function Inquiry() {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    
+    // Add the express flag to the form data
+    data.append("Priority", isExpress ? "24-Hour Express" : "Standard");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mdawezyd", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+        setIsExpress(false);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white text-black pt-32 pb-24 px-4 md:px-8 flex flex-col items-center justify-start relative overflow-x-hidden">
@@ -43,13 +76,40 @@ export default function Inquiry() {
         </div>
 
         {/* Glassmorphic Form */}
-        <div className="bg-white/50 backdrop-blur-xl border border-black/10 p-8 md:p-12 shadow-2xl shadow-black/5">
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+        <div className="bg-white/50 backdrop-blur-xl border border-black/10 p-8 md:p-12 shadow-2xl shadow-black/5 relative overflow-hidden">
+          
+          {/* Success Overlay */}
+          <motion.div 
+            initial={false}
+            animate={{ 
+              opacity: status === "success" ? 1 : 0, 
+              pointerEvents: status === "success" ? "auto" : "none" 
+            }}
+            className="absolute inset-0 z-50 bg-white flex flex-col items-center justify-center p-8 text-center"
+          >
+            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white mb-6 shadow-lg shadow-green-500/30">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-poppins font-bold mb-4">Transmission Received</h3>
+            <p className="font-sans text-lg opacity-70">We'll review your details and be in touch shortly.</p>
+            <button 
+              onClick={() => setStatus("idle")}
+              className="mt-8 px-8 py-3 bg-black text-white font-sans text-sm uppercase tracking-widest hover:bg-black/80 transition-colors"
+            >
+              Send Another
+            </button>
+          </motion.div>
+
+          <form className="space-y-8" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="group relative">
                 <input 
                   type="text" 
                   id="name"
+                  name="name"
+                  required
                   className="w-full bg-transparent border-b border-black/20 py-3 text-lg font-sans placeholder-transparent focus:outline-none focus:border-black transition-colors peer"
                   placeholder="Name"
                 />
@@ -61,6 +121,8 @@ export default function Inquiry() {
                 <input 
                   type="email" 
                   id="email"
+                  name="email"
+                  required
                   className="w-full bg-transparent border-b border-black/20 py-3 text-lg font-sans placeholder-transparent focus:outline-none focus:border-black transition-colors peer"
                   placeholder="Email"
                 />
@@ -73,6 +135,8 @@ export default function Inquiry() {
             <div className="group relative">
               <textarea 
                 id="details"
+                name="details"
+                required
                 rows={4}
                 className="w-full bg-transparent border-b border-black/20 py-3 text-lg font-sans placeholder-transparent focus:outline-none focus:border-black transition-colors peer resize-none"
                 placeholder="Project Details"
@@ -81,6 +145,12 @@ export default function Inquiry() {
                 Project Details
               </label>
             </div>
+
+            {status === "error" && (
+              <div className="p-4 bg-red-50 text-red-600 border border-red-200 text-sm font-sans rounded-lg">
+                Something went wrong. Please try again or email us directly.
+              </div>
+            )}
 
             <div className="pt-4 flex items-center justify-between border-t border-black/10 mt-8">
               <div className="flex items-center gap-4">
@@ -111,10 +181,18 @@ export default function Inquiry() {
             </div>
 
             <div className="pt-8">
-              <button className="w-full group relative inline-flex justify-center items-center px-8 py-5 bg-black text-white overflow-hidden border border-black transition-colors">
-                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-                <span className="relative z-10 text-sm font-sans uppercase tracking-widest group-hover:text-black transition-colors duration-500 delay-100 flex items-center gap-2">
-                  Launch Sequence <span className="group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+              <button 
+                type="submit"
+                disabled={status === "submitting"}
+                className={`w-full group relative inline-flex justify-center items-center px-8 py-5 bg-black text-white overflow-hidden border border-black transition-colors ${status === "submitting" ? "opacity-70 cursor-not-allowed" : ""}`}
+              >
+                {!status || status !== "submitting" && (
+                  <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
+                )}
+                
+                <span className={`relative z-10 text-sm font-sans uppercase tracking-widest transition-colors duration-500 flex items-center gap-2 ${status === "submitting" ? "text-white" : "group-hover:text-black delay-100"}`}>
+                  {status === "submitting" ? "Initiating Sequence..." : "Launch Sequence"} 
+                  {status !== "submitting" && <span className="group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>}
                 </span>
               </button>
             </div>
