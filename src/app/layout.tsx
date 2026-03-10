@@ -22,10 +22,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Sparkey! Branding | Luxury Design",
+  title: "Sparkey! Branding",
   description: "Design at the Speed of Light. Quality that Defies Gravity.",
   openGraph: {
-    title: "Sparkey! Branding | Luxury Design",
+    title: "Sparkey! Branding",
     description: "Design at the Speed of Light. Quality that Defies Gravity.",
     url: "https://sparkeybranding.com",
     siteName: "Sparkey! Branding",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sparkey! Branding - Luxury Design & Web Development",
+        alt: "Sparkey! Branding - Web Development & Branding",
       },
     ],
     locale: "en_US",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sparkey! Branding | Luxury Design",
+    title: "Sparkey! Branding",
     description: "Design at the Speed of Light. Quality that Defies Gravity.",
     images: ["/images/og-image.jpg"],
   },

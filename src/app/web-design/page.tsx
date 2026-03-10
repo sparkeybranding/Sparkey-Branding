@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import FloatingElement from "@/components/FloatingElement";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { HighlightGroup, HighlighterItem, Particles } from "@/components/ui/highlighter";
+import { Button } from "@/components/ui/button";
+import { Mail, MessageCircle, ArrowUpRight } from "lucide-react";
 
 const portfolioItems = [
   {
@@ -156,6 +159,63 @@ export default function WebDesign() {
               Only accepting ambitious brands. Let's make noise.
             </p>
           </div>
+        </section>
+
+        {/* Interactive Contact Card */}
+        <section className="relative mx-auto mt-32 max-w-5xl">
+          <HighlightGroup className="group h-full">
+            <div className="group/item h-full md:col-span-12">
+              <HighlighterItem className="rounded-[3rem] p-px bg-black/5">
+                <div className="relative z-20 h-full overflow-hidden rounded-[3rem] border border-black/5 bg-white shadow-2xl py-16 px-8 md:p-24">
+                  <Particles
+                    className="absolute inset-0 -z-10 opacity-5 transition-opacity duration-1000 ease-in-out group-hover/item:opacity-30"
+                    quantity={150}
+                    color={"#000000"}
+                    vy={-0.1}
+                  />
+                  
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-16">
+                    <div className="flex-1 text-center md:text-left">
+                      <h3 className="text-3xl md:text-5xl font-poppins font-bold tracking-tight mb-6">
+                        Any questions about <span className="italic uppercase">Design?</span>
+                      </h3>
+                      <p className="text-xl font-sans font-light opacity-60 mb-10 max-w-md">
+                        Feel free to reach out to me! We're ready to engineer your digital flagship.
+                      </p>
+                      
+                      <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                        <Link href="https://cal.com/aliimam/designali" target="_blank">
+                          <Button size="lg" className="rounded-full px-8 py-6 bg-black text-white hover:bg-neutral-800 transition-all font-bold uppercase tracking-widest text-xs flex items-center gap-2">
+                            Book a call <ArrowUpRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                        
+                        <div className="flex gap-4">
+                          <Link href="mailto:contact@sparkeybranding.com" className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group/icon shadow-sm">
+                            <Mail className="w-5 h-5" />
+                          </Link>
+                          <Link href="https://wa.me/yournumber" className="w-14 h-14 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group/icon shadow-sm">
+                            <MessageCircle className="w-5 h-5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="hidden lg:block relative w-64 h-64">
+                       <div className="absolute inset-0 bg-black rounded-full overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.1)]">
+                          {/* Symbolic lightning mark using the logo SVG pattern */}
+                          <div className="w-full h-full flex items-center justify-center text-white p-12">
+                            <svg viewBox="0 0 24 24" className="w-full h-full fill-current">
+                              <path d="M13.5 2L5 14h6.5l-2.5 8 8.5-12h-6.5z" />
+                            </svg>
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </HighlighterItem>
+            </div>
+          </HighlightGroup>
         </section>
       </div>
     </div>
