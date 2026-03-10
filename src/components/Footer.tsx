@@ -26,12 +26,12 @@ export default function Footer() {
               transition={{ duration: 0.5, ease: "circOut" }}
             />
           </Link>
-          <p className="font-sans font-light text-sm opacity-60 leading-relaxed">
+          <p className="font-poppins font-light text-sm opacity-60 leading-relaxed">
             Upscale branding and web design delivered with high-velocity precision. Design at the speed of light.
           </p>
         </div>
 
-        <div className="flex gap-16 font-sans text-sm">
+        <div className="flex gap-16 font-poppins text-sm">
           <div className="flex flex-col gap-4">
             <span className="uppercase tracking-[0.2em] font-medium opacity-40 mb-2">Navigation</span>
             <Link href="/" className="hover:opacity-60 transition-opacity">Home</Link>
@@ -49,14 +49,14 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-start md:items-end">
-          <span className="uppercase tracking-[0.2em] font-medium opacity-40 font-sans text-sm mb-6">Start a Project</span>
-          <InvertButton href="/inquiry" className="px-6 py-3 text-xs">
+          <span className="uppercase tracking-[0.2em] font-medium opacity-40 font-poppins text-sm mb-6">Start a Project</span>
+          <InvertButton href="/inquiry" className="px-6 py-3 text-xs font-poppins">
             Book Your Launch
           </InvertButton>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-xs font-sans opacity-40">
+      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-black/5 flex flex-col md:flex-row justify-between items-center text-xs font-poppins opacity-40">
         <p>&copy; {new Date().getFullYear()} Sparkey! Branding. All rights reserved.</p>
         <div className="flex gap-4 mt-4 md:mt-0">
           <Link href="#" className="hover:opacity-100 transition-opacity">Privacy Policy</Link>

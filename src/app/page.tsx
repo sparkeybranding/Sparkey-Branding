@@ -38,7 +38,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-7xl font-serif tracking-tight leading-tight mb-8">
+            <h2 className="text-5xl md:text-7xl font-poppins tracking-tight leading-tight mb-8">
               Work shouldn't feel like <span className="italic">work.</span>
             </h2>
             <p className="text-xl font-sans font-light leading-relaxed opacity-80 mb-8">
@@ -70,7 +70,7 @@ export default function Home() {
       <section className="py-24 px-4 md:px-8 bg-neutral-50 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-20 text-center">
-            <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter uppercase mb-2">The Playbook</h2>
+            <h2 className="text-5xl md:text-7xl font-poppins font-bold tracking-tighter uppercase mb-2">The Playbook</h2>
             <p className="font-serif text-2xl italic opacity-70">Pick your velocity.</p>
           </div>
 
@@ -84,7 +84,7 @@ export default function Home() {
                     <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white font-bold font-sans text-xl shadow-lg group-hover:bg-yellow-400 group-hover:text-black transition-colors duration-500">🏎️</span>
                     <p className="font-sans text-sm uppercase tracking-[0.2em] font-bold">24-Hour Express</p>
                   </div>
-                  <h3 className="text-5xl font-serif mb-6">The Spark</h3>
+                  <h3 className="text-5xl font-poppins mb-6">The Spark</h3>
                   <p className="font-sans font-light leading-relaxed text-lg opacity-80 group-hover:opacity-100 transition-opacity">
                     The impossible, delivered yesterday. A full high-end launch in one solar cycle. Perfect for founders who move fast.
                   </p>
@@ -106,7 +106,7 @@ export default function Home() {
                     <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black text-white font-bold font-sans text-xl shadow-lg group-hover:bg-blue-600 group-hover:text-white transition-colors duration-500">🚀</span>
                     <p className="font-sans text-sm uppercase tracking-[0.2em] font-bold">3-Day Elite</p>
                   </div>
-                  <h3 className="text-5xl font-serif mb-6">The Orbit</h3>
+                  <h3 className="text-5xl font-poppins mb-6">The Orbit</h3>
                   <p className="font-sans font-light leading-relaxed text-lg opacity-80 group-hover:opacity-100 transition-opacity">
                     Precision meets velocity. Complete multi-page digital experiences in 72 hours. We handle the heavy lifting while you chill.
                   </p>
@@ -125,7 +125,7 @@ export default function Home() {
       {/* The Impact / SEO ROI Section */}
       <section className="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="text-center md:text-left mb-16">
-          <h2 className="text-5xl md:text-7xl font-sans font-bold tracking-tighter uppercase mb-4">The Cost of Invisible.</h2>
+          <h2 className="text-5xl md:text-7xl font-poppins font-bold tracking-tighter uppercase mb-4">The Cost of Invisible.</h2>
           <p className="text-xl font-serif italic opacity-70">Data doesn't lie. Bad design bankrupts.</p>
         </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
               <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-[0.65rem] font-bold uppercase tracking-widest mb-6 border border-red-200">
                 The Status Quo
               </span>
-              <h3 className="text-2xl lg:text-3xl font-serif mb-4">The Outdated Website</h3>
+              <h3 className="text-2xl lg:text-3xl font-poppins mb-4">The Outdated Website</h3>
               <p className="font-sans font-light opacity-80 mb-8 leading-relaxed text-sm lg:text-base">
                 Slow load times, confusing navigation, and zero SEO strategy. You're bleeding potential revenue every single day.
               </p>
@@ -193,7 +193,7 @@ export default function Home() {
               <span className="inline-block px-4 py-1 bg-yellow-400/20 text-yellow-400 rounded-full text-[0.65rem] font-bold uppercase tracking-widest mb-6 border border-yellow-400/30">
                 The Sparkey Standard
               </span>
-              <h3 className="text-2xl lg:text-3xl font-serif mb-4 text-white">The High-Performance Machine</h3>
+              <h3 className="text-2xl lg:text-3xl font-poppins mb-4 text-white">The High-Performance Machine</h3>
               <p className="font-sans font-light opacity-80 mb-8 leading-relaxed text-neutral-300 text-sm lg:text-base">
                 Lightning-fast, mobile-first, and heavily optimized for extreme technical SEO and massive conversion rates.
               </p>
@@ -228,7 +228,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tighter mb-8">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-poppins tracking-tighter mb-8">
               Don't leave money <br /><span className="italic text-yellow-400">on the table.</span>
             </h2>
             <p className="text-xl md:text-2xl font-sans font-light leading-relaxed max-w-3xl mx-auto opacity-80 mb-12">
