@@ -8,7 +8,11 @@ export default function Inquiry() {
   const [isExpress, setIsExpress] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Delay slightly to override Next.js/Lenis/Framer layout shifts
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
