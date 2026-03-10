@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Menu, X, Facebook, Instagram } from "lucide-react";
@@ -39,15 +40,14 @@ export default function Navigation() {
         <div className="bg-black/40 backdrop-blur-2xl text-white px-6 md:px-8 py-4 md:py-5 rounded-full flex items-center justify-between w-full max-w-5xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] pointer-events-auto border border-white/20 ring-1 ring-white/10 relative overflow-hidden">
           
           {/* Logo Integration */}
-          <Link href="/" className="flex items-center gap-2 group relative z-[110]" onClick={() => setIsOpen(false)}>
-            <div className="flex flex-col tracking-tight leading-none text-white">
-              <span className="font-poppins font-bold text-lg md:text-2xl uppercase tracking-widest leading-none text-white">Sparkey</span>
-              <span className="font-poppins text-[0.5rem] md:text-xs uppercase tracking-[0.4em] opacity-80 pl-0.5 leading-none">Branding</span>
-            </div>
-            <div className="relative w-7 h-7 md:w-10 md:h-10 ml-1 rounded-full bg-white flex items-center justify-center overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-lg">
-              <svg viewBox="0 0 24 24" className="w-full h-full text-black fill-current transform -rotate-12 scale-[1.3]">
-                <path d="M13.5 2L5 14h6.5l-2.5 8 8.5-12h-6.5z" />
-              </svg>
+          <Link href="/" className="relative z-[110] group" onClick={() => setIsOpen(false)}>
+            <div className="w-40 md:w-56 h-8 md:h-10 relative group-hover:scale-105 transition-transform duration-300">
+              <Image 
+                src="/images/sparkey_logo_white.png" 
+                alt="Sparkey Branding Logo" 
+                fill 
+                className="object-contain object-left pointer-events-none"
+              />
             </div>
           </Link>
           
