@@ -90,7 +90,7 @@ export default function Navigation() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-black/95 backdrop-blur-3xl lg:hidden z-[90] flex flex-col items-center justify-center p-8 pointer-events-auto"
           >
-            <nav className="flex flex-col items-center gap-8 text-3xl font-poppins font-bold uppercase tracking-[0.3em] text-white">
+            <nav className="flex flex-col items-center gap-6 text-xl font-poppins font-bold uppercase tracking-[0.3em] text-white">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
